@@ -39,13 +39,14 @@ const MyHometask: Hometask = {
 //3 Типизация для метода reduce
 interface MyArray<T> {
     [N: number] : T;
-    reduce(fn:(accumulator: T, currValue: T) => T) : T;
+    //reduce(fn:(accumulator: T, currValue: T) => T) : T;
+    reduce<U>(fn:(accumulator: U, currValue: T) => U, init: U) : U;
 }
 
 const myAr: MyArray<number> = [1, 2, 3];
 console.log(myAr.reduce((accumulator, currValue) => {
     return accumulator + currValue;
-}));
+}, 0));
 
 
 
