@@ -1,0 +1,19 @@
+.content {
+  font-size: 60px;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
+}

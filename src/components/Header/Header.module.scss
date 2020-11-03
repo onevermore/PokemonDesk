@@ -1,0 +1,58 @@
+header {
+  height: 93px;
+}
+
+.container {
+  max-width: 1130px;
+  margin: auto;
+  padding: 23px 0;
+}
+
+.header {
+  display: flex;
+}
+
+.pokeLogo {
+  padding-right: 310px;
+}
+
+.menu {
+  margin-left: auto;
+  // max-width: 666px;
+  font-family: 'Karla', sans-serif;
+  font-size: 25px;
+  line-height: 29.23px;
+  color: black;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+li {
+  margin-right: 66.22px;
+}
+
+a {
+  display: inline-block;
+  position: relative;
+}
+
+a:before {
+  display: block;
+  position: absolute;
+  content: '';
+  width: 0;
+  border: 3px solid #212121;
+  bottom: -5px;
+  left: 9%;
+  display: none;
+}
+
+a:hover:before {
+  display: block;
+  width: 100%;
+  left: 0;
+}
