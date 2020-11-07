@@ -3,6 +3,8 @@ import s from './Header.module.scss';
 import Logo from './img/Logo.png';
 
 export const Header = () => {
+  const menuList = ['Home', 'Pokedex', 'Legendaries', 'Documentation'];
+
   return (
     <header>
       <div className={s.container}>
@@ -12,18 +14,11 @@ export const Header = () => {
           </div>
           <nav className={s.menu}>
             <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/">Pokedex</a>
-              </li>
-              <li>
-                <a href="/">Legendaries</a>
-              </li>
-              <li>
-                <a href="/">Documentation</a>
-              </li>
+              {menuList.map((item) => (
+                <li>
+                  <a href="/">{item}</a>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
