@@ -13,6 +13,9 @@ module.exports = {
   },
   plugins: ['prettier', 'prettier', 'react', '@typescript-eslint'],
   rules: {
+    '@typescript-eslint/no-shadow': 'error',
+    'no-shadow': 'off',
+    'react/prop-types': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'import/prefer-default-export': 'off',
     'no-console': 'error',

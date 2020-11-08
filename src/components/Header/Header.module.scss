@@ -1,58 +1,71 @@
-header {
+@import '../../variables';
+
+.shadow {
+  box-shadow: 0px 4px 16px rgba(1, 28, 64, 0.2) !important;
+  z-index: 99;
+}
+
+.root {
   height: 93px;
-}
-
-.container {
-  max-width: 1130px;
-  margin: auto;
-  padding: 23px 0;
-}
-
-.header {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $third;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1125px;
+  height: 63px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .pokeLogo {
-  padding-right: 310px;
+  width: 158px;
+  height: 63px;
 }
 
 .menu {
-  margin-left: auto;
-  // max-width: 666px;
-  font-family: 'Karla', sans-serif;
-  font-size: 25px;
-  line-height: 29.23px;
-  color: black;
-}
-
-ul {
   display: flex;
+  align-items: center;
+  max-width: 658px;
+  width: 100%;
   justify-content: space-between;
-  list-style-type: none;
-}
-
-li {
-  margin-right: 66.22px;
 }
 
 a {
-  display: inline-block;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  color: $dark;
+  text-decoration: none;
+
   position: relative;
-}
 
-a:before {
-  display: block;
-  position: absolute;
-  content: '';
-  width: 0;
-  border: 3px solid #212121;
-  bottom: -5px;
-  left: 9%;
-  display: none;
-}
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -8px;
+    height: 1px;
+    width: 1%;
+    background: $dark;
+    border: 1px solid $dark;
+    border-radius: 6px;
+    opacity: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    transition: opacity, width ease-in-out 0.25s;
+  }
 
-a:hover:before {
-  display: block;
-  width: 100%;
-  left: 0;
+  &:hover {
+    &:after {
+      width: 100%;
+      opacity: 1;
+    }
+  }
 }

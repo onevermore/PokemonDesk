@@ -1,15 +1,27 @@
 import React from 'react';
-import s from './App.module.scss';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import HomePage from './pages/Home';
+import { PokedexPage } from './pages/Pokedex';
 import { Header } from './components/Header';
-import { Footer } from './components/Footer';
 
 const App = () => {
   return (
-    <>
-      <Header />
-      <div className={s.content}>This is App Component</div>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Route
+        render={() => (
+          <>
+            <Header />
+            <div>
+              <Switch>
+                <Route path="/" exact component={HomePage} />
+                <Route path="/pokedex" component={PokedexPage} />
+                <Route render={() => '404 not found'} />
+              </Switch>
+            </div>
+          </>
+        )}
+      />
+    </BrowserRouter>
   );
 };
 
