@@ -11,5 +11,5 @@ type HeadingProps = {
 };
 
 export const Heading: FC<HeadingProps> = ({ children, size }) => {
-  return React.createElement(size, '', children);
+  return React.createElement(size, {}, children);
 };
