@@ -1,36 +1,8 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { A } from 'hookrouter';
 import s from './Header.module.scss';
 import { ReactComponent as PokemonLogoSvg } from './img/Logo.svg';
-
-interface IMenu {
-  id: number;
-  value: string;
-  link: string;
-}
-
-const MENU: IMenu[] = [
-  {
-    id: 1,
-    value: 'Home',
-    link: '/',
-  },
-  {
-    id: 2,
-    value: 'Pokédex',
-    link: '/pokedex',
-  },
-  {
-    id: 3,
-    value: 'Legendaries',
-    link: '/legendaries',
-  },
-  {
-    id: 4,
-    value: 'Documentation',
-    link: '/documentation',
-  },
-];
+import { GENERAL_MENU } from '../../routes';
 
 export const Header: FC = () => {
   return (
@@ -42,9 +14,9 @@ export const Header: FC = () => {
           </div>
 
           <ul className={s.menu}>
-            {MENU.map(({ value, link, id }) => (
-              <li key={id}>
-                <Link to={link}>{value}</Link>
+            {GENERAL_MENU.map(({ title, link }) => (
+              <li key={title}>
+                <A href={link}>{title}</A>
               </li>
             ))}
           </ul>
