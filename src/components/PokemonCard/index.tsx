@@ -56,7 +56,7 @@ export const PokemonCard: React.FC<DataProps> = ({
         </div>
         <div className={s.labelWrap}>
           {types.map((type) => (
-            <span key={name} className={s.label}>
+            <span key={type} className={s.label}>
               {type}
             </span>
           ))}

@@ -10,7 +10,7 @@ export const PokedexList: React.FC = () => {
       <Header />
       <div className={s.root}>
         {pokemons.map((pokemon) => {
-          return <PokemonCard data={pokemon} key={pokemon.name_clean + pokemon.id} />;
+          return <PokemonCard data={pokemon} key={pokemon.id} />;
         })}
       </div>
     </>
