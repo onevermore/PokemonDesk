@@ -1,10 +1,6 @@
 import React from 'react';
-import { Layout } from '../../components/Layout';
+import { PokedexList } from '../../components/PokedexList';
 
 export const PokedexPage: React.FC = () => {
-  return (
-    <Layout>
-      <div>Pokedex</div>
-    </Layout>
-  );
+  return <PokedexList />;
 };

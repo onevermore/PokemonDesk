@@ -15,4 +15,5 @@ li {
 
 body {
   font-family: 'Karla', sans-serif;
+  overflow-x: hidden;
 }
