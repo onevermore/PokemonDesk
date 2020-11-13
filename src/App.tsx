@@ -1,27 +1,18 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import HomePage from './pages/Home';
-import { PokedexPage } from './pages/Pokedex';
+import { useRoutes } from 'hookrouter';
+import { routes } from './routes';
+import { ErrorPage } from './pages/Error';
 import { Header } from './components/Header';
 
 const App = () => {
-  return (
-    <BrowserRouter>
-      <Route
-        render={() => (
-          <>
-            <Header />
-            <div>
-              <Switch>
-                <Route path="/" exact component={HomePage} />
-                <Route path="/pokedex" component={PokedexPage} />
-                <Route render={() => '404 not found'} />
-              </Switch>
-            </div>
-          </>
-        )}
-      />
-    </BrowserRouter>
+  const match = useRoutes(routes);
+  return match ? (
+    <>
+      <Header />
+      {match}
+    </>
+  ) : (
+    <ErrorPage />
   );
 };
 

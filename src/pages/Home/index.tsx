@@ -1,13 +1,14 @@
 import React, { FC } from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { navigate } from 'hookrouter';
 import { Footer } from '../../components/Footer';
 import { Layout } from '../../components/Layout';
 import { Button } from '../../components/Button';
 import s from './Home.module.scss';
 import { Parallax } from '../../components/Parallax';
 import { H, Heading } from '../../components/Heading';
+import { LinkEnum } from '../../routes';
 
-const HomePage: FC<RouteComponentProps> = ({ history }) => {
+const HomePage: FC = () => {
   return (
     <div className={s.root}>
       <Layout className={s.contentWrap}>
@@ -16,10 +17,8 @@ const HomePage: FC<RouteComponentProps> = ({ history }) => {
             <b>Find</b> all your favorite <b>Pokemon</b>
           </Heading>
           <p>You can know the type of Pokemon, its strengths, disadvantages and abilities</p>
-          <Button onClick={() => history.push('/pokedex')}>See pokemons</Button>
-          <Button color="yellow" onClick={() => {}}>
-            Return
-          </Button>
+          <Button onClick={() => navigate(LinkEnum.POKEDEX)}>See pokemons</Button>
+
           <Button size="small" onClick={() => {}}>
             Small
           </Button>
@@ -37,4 +36,4 @@ const HomePage: FC<RouteComponentProps> = ({ history }) => {
   );
 };
 
-export default withRouter(HomePage);
+export default HomePage;

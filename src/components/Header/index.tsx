@@ -1,38 +1,13 @@
-import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import React, { FC, memo } from 'react';
+import { A, usePath } from 'hookrouter';
+import cn from 'classnames';
 import s from './Header.module.scss';
 import { ReactComponent as PokemonLogoSvg } from './img/Logo.svg';
+import { GENERAL_MENU } from '../../routes';
 
-interface IMenu {
-  id: number;
-  value: string;
-  link: string;
-}
+export const Header: FC = memo(() => {
+  const path = usePath();
 
-const MENU: IMenu[] = [
-  {
-    id: 1,
-    value: 'Home',
-    link: '/',
-  },
-  {
-    id: 2,
-    value: 'Pokédex',
-    link: '/pokedex',
-  },
-  {
-    id: 3,
-    value: 'Legendaries',
-    link: '/legendaries',
-  },
-  {
-    id: 4,
-    value: 'Documentation',
-    link: '/documentation',
-  },
-];
-
-export const Header: FC = () => {
   return (
     <header className={s.shadow}>
       <div className={s.root}>
@@ -42,9 +17,15 @@ export const Header: FC = () => {
           </div>
 
           <ul className={s.menu}>
-            {MENU.map(({ value, link, id }) => (
-              <li key={id}>
-                <Link to={link}>{value}</Link>
+            {GENERAL_MENU.map(({ title, link }) => (
+              <li key={title}>
+                <A
+                  className={cn({
+                    [s.activeLink]: link === path,
+                  })}
+                  href={link}>
+                  {title}{' '}
+                </A>
               </li>
             ))}
           </ul>
@@ -52,4 +33,4 @@ export const Header: FC = () => {
       </div>
     </header>
   );
-};
+});
