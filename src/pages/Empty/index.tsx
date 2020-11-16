@@ -11,3 +11,4 @@ export const EmptyPage: React.FC<EmptyProps> = ({ title }) => {
     </div>
   );
 };
+
