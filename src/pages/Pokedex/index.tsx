@@ -19,7 +19,7 @@ const usePokemons = () => {
     const getPokemons = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch('http://zar.hosthot.ru/api/v1/pokemons?limit=100');
+        const response = await fetch('http://zar.hosthot.ru/api/v1/pokemons');
         const result = await response.json();
 
         setData(result);
