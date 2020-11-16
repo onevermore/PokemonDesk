@@ -1,11 +1,10 @@
 import React from 'react';
-
+import cn from 'classnames';
 import { Heading, H } from '../Heading';
-
 import s from './PokemonCard.module.scss';
 
 export interface IStats {
-  hp: number;
+  hp?: number;
   attack: number;
   defense: number;
   'special-attack'?: number;
@@ -14,21 +13,24 @@ export interface IStats {
 }
 
 export interface PokemonsProps {
-  nameClean: string;
+  // eslint-disable-next-line camelcase
+  name_clean: string;
   abilities: string[];
   stats: IStats;
   types: string[];
   img: string;
   name: string;
-  baseExperience: number;
+  // eslint-disable-next-line camelcase
+  base_experience: number;
   height: number;
   id: number;
-  isDefault: boolean;
+  // eslint-disable-next-line camelcase
+  is_default: boolean;
   order: number;
   weight: number;
 }
 
-interface DataProps {
+export interface DataProps {
   data: PokemonsProps;
 }
 
@@ -62,7 +64,7 @@ export const PokemonCard: React.FC<DataProps> = ({
           ))}
         </div>
       </div>
-      <div className={s.pictureWrap}>
+      <div className={cn(s.pictureWrap, s[types[0] as keyof typeof s])}>
         <img src={img} alt={name} />
       </div>
     </div>

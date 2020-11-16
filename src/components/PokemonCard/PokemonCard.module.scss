@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .root {
   width: 351px;
   height: 136px;
@@ -99,4 +101,45 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.bug,
+.grass {
+  background: $grassBug;
+}
+
+.ground {
+  background: $ground;
+}
+
+.rock,
+.dark,
+.stile {
+  background: $darkRock;
+}
+
+.water {
+  background: $iceWater;
+}
+
+.electric {
+  background: $electric;
+}
+
+.fire,
+.fighting,
+.dragon {
+  background: $dragonFire;
+}
+
+.normal,
+.gosth {
+  background: $normalGosth;
+}
+
+.posion,
+.fairy,
+.psychic,
+.ghost {
+  background: $posionFairy;
 }

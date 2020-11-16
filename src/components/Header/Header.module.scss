@@ -3,6 +3,7 @@
 .shadow {
   box-shadow: 0px 4px 16px rgba(1, 28, 64, 0.2) !important;
   z-index: 99;
+  position: relative;
 }
 
 .root {
@@ -67,5 +68,21 @@ a {
       width: 100%;
       opacity: 1;
     }
+  }
+}
+
+.activeLink {
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -8px;
+    height: 1px;
+    width: 100%;
+    background: $dark;
+    border: 1px solid $dark;
+    border-radius: 6px;
+    //left: 50%;
   }
 }

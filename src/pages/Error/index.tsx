@@ -4,6 +4,7 @@ import s from './Error.module.scss';
 import { Button } from '../../components/Button';
 import { Layout } from '../../components/Layout';
 import TeamRocket from './assets/teamRocket.png';
+import { LinkEnum } from '../../routes';
 
 export const ErrorPage = () => {
   return (
@@ -19,7 +20,7 @@ export const ErrorPage = () => {
         <div className={s.text}>
           <span className={s.errorWhiteText}>The rocket team</span> has won this time.
         </div>
-        <Button color="yellow" onClick={() => navigate('/')}>
+        <Button color="yellow" onClick={() => navigate(LinkEnum.HOME)}>
           Return
         </Button>
       </Layout>

@@ -1,10 +1,13 @@
-import React, { FC } from 'react';
-import { A } from 'hookrouter';
+import React, { FC, memo } from 'react';
+import { A, usePath } from 'hookrouter';
+import cn from 'classnames';
 import s from './Header.module.scss';
 import { ReactComponent as PokemonLogoSvg } from './img/Logo.svg';
 import { GENERAL_MENU } from '../../routes';
 
-export const Header: FC = () => {
+export const Header: FC = memo(() => {
+  const path = usePath();
+
   return (
     <header className={s.shadow}>
       <div className={s.root}>
@@ -16,7 +19,13 @@ export const Header: FC = () => {
           <ul className={s.menu}>
             {GENERAL_MENU.map(({ title, link }) => (
               <li key={title}>
-                <A href={link}>{title}</A>
+                <A
+                  className={cn({
+                    [s.activeLink]: link === path,
+                  })}
+                  href={link}>
+                  {title}{' '}
+                </A>
               </li>
             ))}
           </ul>
@@ -24,4 +33,5 @@ export const Header: FC = () => {
       </div>
     </header>
   );
-};
+});
+
