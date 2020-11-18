@@ -18,7 +18,7 @@ export interface PokemonsProps {
   abilities: string[];
   stats: IStats;
   types: string[];
-  img: string;
+  img?: string;
   name: string;
   // eslint-disable-next-line camelcase
   base_experience: number;

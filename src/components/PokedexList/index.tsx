@@ -1,3 +1,4 @@
+import React from 'react';
 import { PokemonCard, PokemonsProps } from '../PokemonCard';
 import s from './PokedexList.module.scss';
 
