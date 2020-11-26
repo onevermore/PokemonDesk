@@ -1,24 +1,18 @@
 import { useEffect, useState } from 'react';
 import req from '../utils/request';
-import { PokemonsProps } from '../components/PokemonCard';
 
-interface DataProps {
-  total: number;
-  pokemons: Array<PokemonsProps>;
-}
+const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
+  const [data, setData] = useState<T | null>(null);
 
-const useData = (endpoint: string, query: object, deps: any[] = []) => {
-  const [data, setData] = useState<DataProps>({ total: 0, pokemons: [] });
-
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
-    const getData = async () => {
+    const getData = async (): Promise<void> => {
       setIsLoading(true);
 
       try {
-        const result = await req(endpoint, query);
+        const result = await req<T>(endpoint, query);
 
         setData(result);
       } catch (e) {

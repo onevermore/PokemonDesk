@@ -13,6 +13,14 @@ li {
   list-style-type: none;
 }
 
+/*
+@media screen and (min-width: 500px) {
+  html {
+    padding-left: calc(100vw - 100%);
+    margin-right: 0;
+  }
+}*/
+
 body {
   font-family: 'Karla', sans-serif;
   overflow-x: hidden;

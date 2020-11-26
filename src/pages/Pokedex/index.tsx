@@ -4,16 +4,25 @@ import { H, Heading } from '../../components/Heading';
 import s from './Pokedex.module.scss';
 import { Layout } from '../../components/Layout';
 import useData from '../../hook/getData';
+import { IPokemons } from '../../interface/pokemons';
+import { useDebounce } from '../../hook/useDebounce';
+
+interface IQuery {
+  limit: number;
+  name?: string;
+}
 
 export const PokedexPage: React.FC = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [query, setQuery] = useState({});
-  const { data, isLoading, isError } = useData('getPokemons', query, [searchValue]);
+  const [query, setQuery] = useState<IQuery>({ limit: 12 });
+  const debouncedValue = useDebounce(searchValue, 500);
+
+  const { data, isLoading, isError } = useData<IPokemons>('getPokemons', query, [debouncedValue]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
-    setQuery((ss) => ({
-      ...ss,
+    setQuery((state: IQuery) => ({
+      ...state,
       name: event.target.value,
     }));
   };
@@ -32,7 +41,7 @@ export const PokedexPage: React.FC = () => {
     <Layout>
       <div className={s.hStyle}>
         <Heading size={H.h3}>
-          {!isLoading && data.total} <strong>Pokemons</strong> for you to choose your favorite
+          {!isLoading && data && data.total} <strong>Pokemons</strong> for you to choose your favorite
         </Heading>
       </div>
       <div>
@@ -40,7 +49,7 @@ export const PokedexPage: React.FC = () => {
       </div>
 
       <div>
-        {!isLoading && <PokedexList pokemons={data.pokemons} />}
+        {!isLoading && data && <PokedexList pokemons={data.pokemons} />}
         {/*  {data.pokemons.map( item => <div>{item.name}</div>)} */}
       </div>
     </Layout>
