@@ -18,14 +18,6 @@ const HomePage: FC = () => {
           </Heading>
           <p>You can know the type of Pokemon, its strengths, disadvantages and abilities</p>
           <Button onClick={() => navigate(LinkEnum.POKEDEX)}>See pokemons</Button>
-
-          <Button size="small" onClick={() => {}}>
-            Small
-          </Button>
-          <Button fullWidth onClick={() => {}}>
-            {' '}
-            Full Width
-          </Button>
         </div>
         <div className={s.contentParallax}>
           <Parallax />

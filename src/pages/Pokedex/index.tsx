@@ -10,11 +10,13 @@ import { useDebounce } from '../../hook/useDebounce';
 interface IQuery {
   limit: number;
   name?: string;
+  // eslint-disable-next-line camelcase
+  attack_to: number;
 }
 
 export const PokedexPage: React.FC = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [query, setQuery] = useState<IQuery>({ limit: 12 });
+  const [query, setQuery] = useState<IQuery>({ limit: 12, attack_to: 80 });
   const debouncedValue = useDebounce(searchValue, 500);
 
   const { data, isLoading, isError } = useData<IPokemons>('getPokemons', query, [debouncedValue]);
