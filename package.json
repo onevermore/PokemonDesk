@@ -5,8 +5,7 @@
   "scripts": {
     "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "start": "cross-env NODE_ENV=development webpack-dev-server",
-    "lint:fix": "eslint --debug src/ --fix"
+    "start": "cross-env NODE_ENV=development webpack-dev-server"
   },
   "repository": "https://github.com/onevermore/PokemonDesk.git",
   "author": "Victoria",
@@ -73,8 +72,8 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json}": [
-      "npm run lint:fix",
-      "git add"
+      "pretty-quick --staged",
+      "eslint ./src"
     ]
   }
 }
